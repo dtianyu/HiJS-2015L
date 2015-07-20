@@ -1,0 +1,6 @@
+archive
+node_modules
+nbproject
+.idea
+dist
+out
