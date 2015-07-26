@@ -2160,7 +2160,7 @@ iframe.map {
     background-color: #fff;
     margin-bottom: 30px;
     padding-bottom: 10px;
-    position: relative
+    position: relative;
 }
 
 .properties-grid .property:after {
@@ -2264,6 +2264,22 @@ iframe.map {
     display: inline
 }
 
+.properties-grid .property .feature {
+    color: #313131;
+    float: left;
+    margin-top: 8px
+}
+
+.properties-grid .property .feature .key {
+    display: inline;
+    font-weight: bold;
+    padding: 0px 0px 0px 15px
+}
+
+.properties-grid .property .feature .value {
+    display: inline
+}
+
 .properties-grid .property .bedrooms {
     float: right;
     margin-right: 10px;
@@ -2283,6 +2299,12 @@ iframe.map {
     .properties-grid .property .bedrooms .content {
         background-image: url("../img/icons/bedrooms@2x.png")
     }
+}
+
+.properties-grid .property .pcc{
+    float: right;
+    margin-right: 10px;
+    padding-top: 8px
 }
 
 .properties-grid .property .bathrooms {
@@ -2307,7 +2329,8 @@ iframe.map {
 }
 
 .properties-grid .property:nth-last-child(1), .properties-grid .property:nth-last-child(2), .properties-grid .property:nth-last-child(3) {
-    margin-bottom: 0px
+    /*margin-bottom: 0px*/
+    /*非3的整数倍时布局错误，所以暂时取消*/
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -3379,10 +3402,40 @@ iframe.map {
     padding-left: 30px
 }
 
+.carousel ul li .feature {
+    color: #313131;
+    float: left;
+    margin-top: 8px
+}
+
+.carousel ul li .feature .key {
+    display: inline;
+    font-weight: bold;
+    padding: 0px 0px 0px 10px
+}
+
+.carousel ul li .feature .value {
+    display: inline
+}
+
 @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
     .carousel ul li .bedrooms .inner {
         background-image: url("../img/icons/bedrooms@2x.png")
     }
+}
+
+.carousel ul li .pcc {
+    float: right;
+    margin-right: 10px;
+    padding-top: 8px
+}
+
+.carousel ul li .pcc .inner {
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 14px 20px;
+    color: #313131;
+    padding-left: 25px
 }
 
 .carousel ul li .bathrooms {

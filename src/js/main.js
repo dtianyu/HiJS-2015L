@@ -1,10 +1,10 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-$(document).ready(function() {
+$(document).ready(function () {
     InitPropertyCarousel();
     InitOffCanvasNavigation();
     InitChosen();
@@ -14,11 +14,6 @@ $(document).ready(function() {
     InitAccordion();
     InitTabs();
     InitPalette();
-
-    $('.carousel-next').on('click',function(){
-        $(this).parent().find('.caroufredsel_wrapper').carousel('next');
-    });
-
 });
 
 function InitPalette() {
@@ -27,17 +22,17 @@ function InitPalette() {
     }
 
     $('.palette .toggle a').on({
-        click: function(e) {
+        click: function (e) {
             e.preventDefault();
             var palette = $(this).closest('.palette');
 
             if (palette.hasClass('open')) {
-                palette.animate({'left': '-195'}, 500, function() {
+                palette.animate({'left': '-195'}, 500, function () {
                     palette.removeClass('open');
                 });
                 $.cookie('palette', false)
             } else {
-                palette.animate({'left': '0'}, 500, function() {
+                palette.animate({'left': '0'}, 500, function () {
                     palette.addClass('open');
                     $.cookie('palette', true);
                 });
@@ -46,7 +41,7 @@ function InitPalette() {
     });
 
     if ($.cookie('color-variant')) {
-        var link = $('.palette').find('a.'+ $.cookie('color-variant'));
+        var link = $('.palette').find('a.' + $.cookie('color-variant'));
         var file = link.attr('href');
         var klass = link.attr('class');
 
@@ -63,7 +58,7 @@ function InitPalette() {
     }
 
     $('.palette a').on({
-        click: function(e) {
+        click: function (e) {
             e.preventDefault();
 
             // Colors
@@ -101,7 +96,7 @@ function InitPalette() {
         }
     });
     $('.palette .reset').on({
-        click: function() {
+        click: function () {
             $('body').removeClass($.cookie('color-variant'));
             $('#color-variant').attr('href', null);
             $.removeCookie('color-variant');
@@ -117,11 +112,11 @@ function InitPalette() {
 
 function InitPropertyCarousel() {
     $('.carousel.property .content li img').on({
-        click: function(e) {
+        click: function (e) {
             var src = $(this).attr('src');
             var img = $(this).closest('.carousel.property').find('.preview img');
             img.attr('src', src);
-            $('.carousel.property .content li').each(function() {
+            $('.carousel.property .content li').each(function () {
                 $(this).removeClass('active');
             });
             $(this).closest('li').addClass('active');
@@ -142,8 +137,8 @@ function InitImageSlider() {
         snapToChildren: true,
         infiniteSlider: true,
         navSlideSelector: '.slider .navigation li',
-        onSlideComplete: function(args) {
-            if(!args.slideChanged) return false;
+        onSlideComplete: function (args) {
+            if (!args.slideChanged) return false;
 
             $(args.sliderObject).find('.slider-info').attr('style', '');
 
@@ -152,7 +147,7 @@ function InitImageSlider() {
                 opacity: '.9'
             }, 'easeOutQuint');
         },
-        onSliderLoaded: function(args) {
+        onSliderLoaded: function (args) {
             $(args.sliderObject).find('.slider-info').attr('style', '');
 
             $(args.currentSlideObject).find('.slider-info').animate({
@@ -160,7 +155,7 @@ function InitImageSlider() {
                 opacity: '.9'
             }, 'easeOutQuint');
         },
-        onSlideChange: function(args) {
+        onSlideChange: function (args) {
             $('.slider .navigation li').removeClass('active');
             $('.slider .navigation li:eq(' + (args.currentSlideNumber - 1) + ')').addClass('active');
         },
@@ -185,25 +180,25 @@ function InitAccordion() {
 
 function InitPriceSlider() {
     jQuery('.price-value .from').text(100);
-    jQuery('.price-value .from').currency({ region: 'EUR', thousands: ' ', decimal: ',', decimals: 0 });
+    jQuery('.price-value .from').currency({region: 'EUR', thousands: ' ', decimal: ',', decimals: 0});
 
     jQuery('.price-value .to').text(1000000);
-    jQuery('.price-value .to').currency({ region: 'EUR', thousands: ' ', decimal: ',', decimals: 0 });
+    jQuery('.price-value .to').currency({region: 'EUR', thousands: ' ', decimal: ',', decimals: 0});
 
     $('.property-filter .price-slider').slider({
         range: true,
         min: 100,
         max: 1000000,
         values: [100, 1000000],
-        slide: function(event, ui) {
+        slide: function (event, ui) {
             jQuery('.property-filter .price-from input').attr('value', ui.values[0]);
             jQuery('.property-filter .price-to input').attr('value', ui.values[1]);
 
             jQuery('.price-value .from').text(ui.values[0]);
-            jQuery('.price-value .from').currency({ region: 'EUR', thousands: ' ', decimal: ',', decimals: 0 });
+            jQuery('.price-value .from').currency({region: 'EUR', thousands: ' ', decimal: ',', decimals: 0});
 
             jQuery('.price-value .to').text(ui.values[1]);
-            jQuery('.price-value .to').currency({ region: 'EUR', thousands: ' ', decimal: ',', decimals: 0 });
+            jQuery('.price-value .to').currency({region: 'EUR', thousands: ' ', decimal: ',', decimals: 0});
         }
     });
 }
@@ -221,7 +216,7 @@ function InitChosen() {
 
 function InitOffCanvasNavigation() {
     $('#btn-nav').on({
-        click: function() {
+        click: function () {
             $('body').toggleClass('nav-open');
         }
     })

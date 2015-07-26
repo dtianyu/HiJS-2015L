@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -21,15 +21,14 @@ appDirectives.directive("showTab",
     }).directive("carousel", function () {
         return {
             link: function (scope, element, attrs) {
-                alert(attrs.rol);
-                //alert(attrs.data-ontent);
-                var next = '#help a.carousel-next';
-                var prev = '#help a.carousel-prev';
+                var next = '#' + attrs.role + ' a.carousel-next';
+                var prev = '#' + attrs.role + ' a.carousel-prev';
                 $(element).parent().carouFredSel({
                     scroll: {
-                        items: 1
+                        items: 1,
+                        pauseOnHover: true
                     },
-                    auto: true,
+                    auto: false,
                     next: {
                         button: next,
                         key: 'right'
@@ -80,12 +79,7 @@ appDirectives.directive("showTab",
                 element.datepicker(optDate);
             }
         };
-
-    });
-
-
-appDirectives.directive("qrcode",
-    function () {
+    }).directive("qrcode", function () {
         return {
             link: function (scope, element, attrs) {
                 element.qrcode({width: 200, height: 200, text: window.location.href});

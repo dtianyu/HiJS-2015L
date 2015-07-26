@@ -149,233 +149,37 @@
     <div id="main">
         <div class="row">
             <div class="span9">
-                <h1 class="page-header">Featured properties</h1>
+                <h1 class="page-header">最受欢迎 Favorite</h1>
 
                 <div class="properties-grid">
                     <div class="row">
-                        <div class="property span3">
+                        <div class="property span3" ng-repeat="store in catestores">
                             <div class="image">
-                                <div class="content">
-                                    <a href="detail.html"></a>
-                                    <img src="img/tmp/property-small-1.png" alt="">
-                                </div>
+                                <a href="#/{{store.kind}}/{{store.id}}"></a>
+                                <img ng-if="store.logo2" ng-src="app/img/{{store.userid}}/{{store.logo2}}"
+                                     alt="{{store.name}}">
+                                <img ng-if="!store.logo2" ng-src="app/img/{{store.category}}.png" alt="{{store.name}}">
                                 <!-- /.content -->
-
-                                <div class="price">1 250 000€</div>
+                                <div class="price">
+                                    人均:￥{{store.pcc}}元
+                                </div>
                                 <!-- /.price -->
-                                <div class="reduced">Reduced</div>
-                                <!-- /.reduced -->
                             </div>
                             <!-- /.image -->
-
                             <div class="title">
-                                <h2><a href="detail.html">27523 Pacific Coast</a></h2>
+                                <h2><a href="#/{{store.kind}}/{{store.id}}">{{store.name}}</a>&nbsp;&nbsp;<span
+                                    class="content-stars-rank content-stars-{{store.hot}}"></span></h2>
                             </div>
                             <!-- /.title -->
-
-                            <div class="location">Palo Alto CA</div>
-                            <!-- /.location -->
-                            <div class="area">
-                                <span class="key">Area:</span><!-- /.key -->
-                                <span class="value">120</span><!-- /.value -->
+                            <div class="location">
+                                地区:{{store.town}}<span class="value">&nbsp;&nbsp;电话:{{store.phone}}</span></h5>
                             </div>
-                            <!-- /.area -->
-                            <div class="bedrooms">
-                                <div class="content">4</div>
+                            <!-- /.location-->
+                            <div class="feature">
+                                <span class="key">特色:</span>
+                                <span class="value">{{store.feature}}</span>
                             </div>
-                            <!-- /.bedrooms -->
-                            <div class="bathrooms">
-                                <div class="content">3</div>
-                            </div>
-                            <!-- /.bathrooms -->
-                        </div>
-                        <!-- /.property -->
-
-                        <div class="property span3">
-                            <div class="image">
-                                <div class="content">
-                                    <a href="detail.html"></a>
-                                    <img src="img/tmp/property-small-2.png" alt="">
-                                </div>
-                                <!-- /.content -->
-                                <div class="price">1 250 000€</div>
-                                <!-- /.price -->
-                                <div class="reduced">Reduced</div>
-                                <!-- /.reduced -->
-                            </div>
-                            <!-- /.image -->
-
-                            <div class="title">
-                                <h2><a href="detail.html">27523 Pacific Coast</a></h2>
-                            </div>
-                            <!-- /.title -->
-
-                            <div class="location">Palo Alto CA</div>
-                            <!-- /.location -->
-                            <div class="area">
-                                <span class="key">Area:</span><!-- /.key -->
-                                <span class="value">120</span><!-- /.value -->
-                            </div>
-                            <!-- /.area -->
-                            <div class="bedrooms">
-                                <div class="content">4</div>
-                            </div>
-                            <!-- /.bedrooms -->
-                            <div class="bathrooms">
-                                <div class="content">3</div>
-                            </div>
-                            <!-- /.bathrooms -->
-                        </div>
-                        <!-- /.property -->
-
-                        <div class="property span3">
-                            <div class="image">
-                                <div class="content">
-                                    <a href="detail.html"></a>
-                                    <img src="img/tmp/property-small-3.png" alt="">
-                                </div>
-                                <!-- /.content -->
-
-                                <div class="price">1 250 000€</div>
-                                <!-- /.price -->
-                                <div class="reduced">Reduced</div>
-                                <!-- /.reduced -->
-                            </div>
-                            <!-- /.image -->
-
-                            <div class="title">
-                                <h2><a href="detail.html">27523 Pacific Coast</a></h2>
-                            </div>
-                            <!-- /.title -->
-
-                            <div class="location">Palo Alto CA</div>
-                            <!-- /.location -->
-                            <div class="area">
-                                <span class="key">Area:</span><!-- /.key -->
-                                <span class="value">120</span><!-- /.value -->
-                            </div>
-                            <!-- /.area -->
-                            <div class="bedrooms">
-                                <div class="content">4</div>
-                            </div>
-                            <!-- /.bedrooms -->
-                            <div class="bathrooms">
-                                <div class="content">3</div>
-                            </div>
-                            <!-- /.bathrooms -->
-                        </div>
-                        <!-- /.property -->
-
-                        <div class="property span3">
-                            <div class="image">
-                                <div class="content">
-                                    <a href="detail.html"></a>
-                                    <img src="img/tmp/property-small-4.png" alt="">
-                                </div>
-                                <!-- /.content -->
-                                <div class="price">1 250 000€</div>
-                                <!-- /.price -->
-                                <div class="reduced">Reduced</div>
-                                <!-- /.reduced -->
-                            </div>
-                            <!-- /.image -->
-
-                            <div class="title">
-                                <h2><a href="detail.html">27523 Pacific Coast</a></h2>
-                            </div>
-                            <!-- /.title -->
-
-                            <div class="location">Palo Alto CA</div>
-                            <!-- /.location -->
-                            <div class="area">
-                                <span class="key">Area:</span><!-- /.key -->
-                                <span class="value">120</span><!-- /.value -->
-                            </div>
-                            <!-- /.area -->
-                            <div class="bedrooms">
-                                <div class="content">4</div>
-                            </div>
-                            <!-- /.bedrooms -->
-                            <div class="bathrooms">
-                                <div class="content">3</div>
-                            </div>
-                            <!-- /.bathrooms -->
-                        </div>
-                        <!-- /.property -->
-
-                        <div class="property span3">
-                            <div class="image">
-                                <div class="content">
-                                    <a href="detail.html"></a>
-                                    <img src="img/tmp/property-small-5.png" alt="">
-                                </div>
-                                <!-- /.content -->
-
-                                <div class="price">1 250 000€</div>
-                                <!-- /.price -->
-                                <div class="reduced">Reduced</div>
-                                <!-- /.reduced -->
-                            </div>
-                            <!-- /.image -->
-
-                            <div class="title">
-                                <h2><a href="detail.html">27523 Pacific Coast</a></h2>
-                            </div>
-                            <!-- /.title -->
-
-                            <div class="location">Palo Alto CA</div>
-                            <!-- /.location -->
-                            <div class="area">
-                                <span class="key">Area:</span><!-- /.key -->
-                                <span class="value">120</span><!-- /.value -->
-                            </div>
-                            <!-- /.area -->
-                            <div class="bedrooms">
-                                <div class="content">4</div>
-                            </div>
-                            <!-- /.bedrooms -->
-                            <div class="bathrooms">
-                                <div class="content">3</div>
-                            </div>
-                            <!-- /.bathrooms -->
-                        </div>
-                        <!-- /.property -->
-
-                        <div class="property span3">
-                            <div class="image">
-                                <div class="content">
-                                    <a href="detail.html"></a>
-                                    <img src="img/tmp/property-small-6.png" alt="">
-                                </div>
-                                <!-- /.content -->
-
-                                <div class="price">1 250 000€</div>
-                                <!-- /.price -->
-                                <div class="reduced">Reduced</div>
-                                <!-- /.reduced -->
-                            </div>
-                            <!-- /.image -->
-
-                            <div class="title">
-                                <h2><a href="detail.html">27523 Pacific Coast</a></h2>
-                            </div>
-                            <!-- /.title -->
-
-                            <div class="location">Palo Alto CA</div>
-                            <!-- /.location -->
-                            <div class="area">
-                                <span class="key">Area:</span><!-- /.key -->
-                                <span class="value">120</span><!-- /.value -->
-                            </div>
-                            <!-- /.area -->
-                            <div class="bedrooms">
-                                <div class="content">4</div>
-                            </div>
-                            <!-- /.bedrooms -->
-                            <div class="bathrooms">
-                                <div class="content">3</div>
-                            </div>
-                            <!-- /.bathrooms -->
+                            <!-- /.feature -->
                         </div>
                         <!-- /.property -->
                     </div>
@@ -427,7 +231,7 @@
                 <div class="hidden-tablet">
                     <div class="widget properties last">
                         <div class="title">
-                            <h2>Latest Properties</h2>
+                            <h2>最新入驻 Newest</h2>
                         </div>
                         <!-- /.title -->
 
@@ -530,13 +334,12 @@
                 </div>
             </div>
         </div>
-        <div class="carousel">
-            <h2 class="page-header">美食外卖 Cate</h2>
+        <div id="cate" class="carousel">
+            <h2 class="page-header">美食外卖 Cate<a href="#/cate" style="float: right">More...</a></h2>
 
             <div class="content">
-                <a class="carousel-prev" href="javascript:void(0);"
-                   onclick="$(this).parent().find('ul').carousel('prev');">Previous</a>
-                <a class="carousel-next" href="javascript:void(0);">Next</a>
+                <a class="carousel-prev" href="#/cate">Previous</a>
+                <a class="carousel-next" href="#/cate">Next</a>
                 <ul>
                     <li carousel role="cate" ng-repeat="store in catestores">
                         <div class="image">
@@ -547,198 +350,139 @@
                         </div>
                         <!-- /.image -->
                         <div class="title">
-                            <h3><a href="#/cate/{{store.id}}">{{store.name}}</a></h3>
+                            <h3><a href="#/cate/{{store.id}}">{{store.name}}</a>&nbsp;&nbsp;<span
+                                class="content-stars-rank content-stars-{{store.hot}}"></span></h3>
                         </div>
                         <!-- /.title -->
                         <div class="location">
-                            地区:{{store.town}}<span class="value">{{store.phone}}</span></h5>
+                            地区:{{store.town}}<span class="value">&nbsp;&nbsp;电话:{{store.phone}}</span></h5>
                         </div>
                         <!-- /.location-->
-                        <div class="area">
+                        <div class="feature">
                             <span class="key">特色:</span>
                             <span class="value">{{store.feature}}</span>
                         </div>
-                        <!-- /.area -->
-                        <div class="bathrooms">
-                            <div class="inner">3</div>
+                        <!-- /.feature -->
+                        <div class="pcc">
+                            <div class="inner" ng-if="store.pcc > 0">人均:￥{{store.pcc}}元</div>
                         </div>
-                        <!-- /.bathrooms -->
-                        <div class="bedrooms">
-                            <div class="inner">3</div>
-                        </div>
-                        <!-- /.bedrooms -->
+                        <!-- /.pcc -->
                     </li>
                 </ul>
             </div>
             <!-- /.content -->
         </div>
-        <div class="carousel">
-            <h2 class="page-header">同城服务 Service</h2>
+        <!-- /#cate .carousel -->
+        <div id="help" class="carousel">
+            <h2 class="page-header">同城服务 Service<a href="#/help" style="float: right">More...</a></h2>
 
             <div class="content">
-                <a class="carousel-prev" href="detail.html" style="display: block;">Previous</a>
-                <a class="carousel-next" href="detail.html" style="display: block;">Next</a>
+                <a class="carousel-prev" href="#/help">Previous</a>
+                <a class="carousel-next" href="#/help">Next</a>
                 <ul>
-                    <li role="help" ng-repeat="store in helpstores" carousel>
+                    <li carousel role="help" ng-repeat="store in helpstores">
                         <div class="image">
-                            <a href="#/cate/{{store.id}}"></a>
+                            <a href="#/help/{{store.id}}"></a>
                             <img ng-if="store.logo2" ng-src="app/img/{{store.userid}}/{{store.logo2}}"
                                  alt="{{store.name}}">
                             <img ng-if="!store.logo2" ng-src="app/img/{{store.category}}.png" alt="{{store.name}}">
                         </div>
                         <!-- /.image -->
                         <div class="title">
-                            <h3><a href="#/cate/{{store.id}}">{{store.name}}</a>
-                                <small>地区:{{store.town}}</small>
-                            </h3>
+                            <h3><a href="#/help/{{store.id}}">{{store.name}}</a>&nbsp;&nbsp;<span
+                                class="content-stars-rank content-stars-{{store.hot}}"></span></h3>
                         </div>
                         <!-- /.title -->
                         <div class="location">
-                            电话:{{store.phone}}
+                            地区:{{store.town}}<span class="value">&nbsp;&nbsp;电话:{{store.phone}}</span></h5>
                         </div>
                         <!-- /.location-->
-                        <div class="area">
-                            <span class="key">特色:</span>
+                        <div class="feature">
+                            <span class="key">专长:</span>
                             <span class="value">{{store.feature}}</span>
                         </div>
-                        <!-- /.area -->
-                        <div class="bathrooms">
-                            <div class="inner">3</div>
-                        </div>
-                        <!-- /.bathrooms -->
-                        <div class="bedrooms">
-                            <div class="inner">3</div>
-                        </div>
-                        <!-- /.bedrooms -->
+                        <!-- /.feature -->
                     </li>
                 </ul>
             </div>
-
             <!-- /.content -->
         </div>
-        <!-- /.carousel -->
-        <div class="features">
-            <h2 class="page-header">Theme features</h2>
+        <!-- /#help .carousel -->
+        <div id="training" class="carousel">
+            <h2 class="page-header">教育培训 Training<a href="#/training" style="float: right">More...</a></h2>
 
-            <div class="row">
-                <div class="item span4">
-                    <div class="row">
-                        <div class="icon span1">
-                            <img src="img/icons/features-seo.png" alt="">
+            <div class="content">
+                <a class="carousel-prev" href="#/training">Previous</a>
+                <a class="carousel-next" href="#/training">Next</a>
+                <ul>
+                    <li carousel role="training" ng-repeat="store in trainingstores">
+                        <div class="image">
+                            <a href="#/training/{{store.id}}"></a>
+                            <img ng-if="store.logo2" ng-src="app/img/{{store.userid}}/{{store.logo2}}"
+                                 alt="{{store.name}}">
+                            <img ng-if="!store.logo2" ng-src="app/img/{{store.category}}.png" alt="{{store.name}}">
                         </div>
-                        <!-- /.icon -->
-
-                        <div class="text span3">
-                            <h3>SEO Ready</h3>
-
-                            <p>Realia is ready to put your website on higher ranks. Every line of code
-                                was developed with SEO principles in mind.</p>
+                        <!-- /.image -->
+                        <div class="title">
+                            <h3><a href="#/training/{{store.id}}">{{store.name}}</a>&nbsp;&nbsp;<span
+                                class="content-stars-rank content-stars-{{store.hot}}"></span></h3>
                         </div>
-                        <!-- /.logo -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.item -->
-
-                <div class="item span4">
-                    <div class="row">
-                        <div class="icon span1">
-                            <img src="img/icons/features-retina.png" alt="">
+                        <!-- /.title -->
+                        <div class="location">
+                            地区:{{store.town}}<span class="value">&nbsp;&nbsp;电话:{{store.phone}}</span></h5>
                         </div>
-                        <!-- /.icon -->
-
-                        <div class="text span3">
-                            <h3>Retina Ready</h3>
-
-                            <p>Realia looks great even on Retina and high-resoultion displays. Every
-                                graphic element is sharp and clean. No blurry images anymore!</p>
+                        <!-- /.location-->
+                        <div class="feature">
+                            <span class="key">专长:</span>
+                            <span class="value">{{store.feature}}</span>
                         </div>
-                        <!-- /.logo -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.item -->
-
-                <div class="item span4">
-                    <div class="row">
-                        <div class="icon span1">
-                            <img src="img/icons/features-custom-widgets.png" alt="">
-                        </div>
-                        <!-- /.icon -->
-
-                        <div class="text span3">
-                            <h3>Custom Widgets</h3>
-
-                            <p>Realia provides custom developed widgets to fulfil requirements of good
-                                real estate application.</p>
-                        </div>
-                        <!-- /.logo -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.item -->
+                        <!-- /.feature -->
+                    </li>
+                </ul>
             </div>
-            <div class="row">
-                <div class="item span4">
-                    <div class="row">
-                        <div class="icon span1">
-                            <img src="img/icons/features-bootstrap.png" alt="">
-                        </div>
-                        <!-- /.icon -->
-
-                        <div class="text span3">
-                            <h3>Prepared for Bootstrap</h3>
-
-                            <p>Developer friendly code based on Bootstrap and SASS makes your own
-                                customizations really easy.</p>
-                        </div>
-                        <!-- /.logo -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.item -->
-
-                <div class="item span4">
-                    <div class="row">
-                        <div class="icon span1">
-                            <img src="img/icons/features-pencil.png" alt="">
-                        </div>
-                        <!-- /.icon -->
-
-                        <div class="text span3">
-                            <h3>Frontend Submission</h3>
-
-                            <p>Make the portal solution from your real estate by providing property
-                                submission on homepage.</p>
-                        </div>
-                        <!-- /.logo -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.item -->
-
-                <div class="item span4">
-                    <div class="row">
-                        <div class="icon span1">
-                            <img src="img/icons/features-responsive.png" alt="">
-                        </div>
-                        <!-- /.icon -->
-
-                        <div class="text span3">
-                            <h3>Responsive</h3>
-
-                            <p>Realia is ready to put your website on higher ranks. Every line of code
-                                was developed with SEO principles in mind.</p>
-                        </div>
-                        <!-- /.logo -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.item -->
-            </div>
-            <!-- /.row -->
+            <!-- /.content -->
         </div>
-        <!-- /.features -->    </div>
+        <!-- /#training .carousel -->
+        <div id="fresh" class="carousel">
+            <h2 class="page-header">生鲜水果 Fresh<a href="#/fresh" style="float: right">More...</a></h2>
+
+            <div class="content">
+                <a class="carousel-prev" href="#/fresh">Previous</a>
+                <a class="carousel-next" href="#/fresh">Next</a>
+                <ul>
+                    <li carousel role="fresh" ng-repeat="store in freshstores">
+                        <div class="image">
+                            <a href="#/fresh/{{store.id}}"></a>
+                            <img ng-if="store.logo2" ng-src="app/img/{{store.userid}}/{{store.logo2}}"
+                                 alt="{{store.name}}">
+                            <img ng-if="!store.logo2" ng-src="app/img/{{store.category}}.png" alt="{{store.name}}">
+                        </div>
+                        <!-- /.image -->
+                        <div class="title">
+                            <h3><a href="#/fresh/{{store.id}}">{{store.name}}</a>&nbsp;&nbsp;<span
+                                class="content-stars-rank content-stars-{{store.hot}}"></span></h3>
+                        </div>
+                        <!-- /.title -->
+                        <div class="location">
+                            地区:{{store.town}}<span class="value">&nbsp;&nbsp;电话:{{store.phone}}</span></h5>
+                        </div>
+                        <!-- /.location-->
+                        <div class="feature">
+                            <span class="key">特色:</span>
+                            <span class="value">{{store.feature}}</span>
+                        </div>
+                        <!-- /.feature -->
+                        <div class="pcc">
+                            <div class="inner" ng-if="store.pcc > 0">人均:￥{{store.pcc}}元</div>
+                        </div>
+                        <!-- /.pcc -->
+                    </li>
+                </ul>
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /#fresh .carousel -->
+    </div>
 </div>
 <div class="bottom-wrapper">
     <div class="bottom container">
@@ -778,6 +522,3 @@
     <!-- /.bottom -->
 </div>
 <!-- /.bottom-wrapper -->
-<!--<script>-->
-<!--InitCarousel();-->
-<!--</script>-->
