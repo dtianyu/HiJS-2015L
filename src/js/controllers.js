@@ -72,8 +72,7 @@ var FilterController = ['$scope', 'Filter', 'Area', function ($scope, Filter, Ar
     };
 
     $scope.resetFilter = function () {
-        $scope.doFilter.filterDetail.town = [];
-        $scope.doFilter.filterDetail.category = [];
+       Filter.clear();
     }
 
 }];
@@ -94,7 +93,7 @@ var CateController = ['$scope', '$routeParams', '$location', 'Cate', 'Filter', '
     $scope.goto = function (path) {
         $location.path(path);
     };
-
+    Filter.clear();
     $scope.doFilter = Filter;
     $scope.store;
     $scope.stores = Cate.query();
@@ -108,12 +107,14 @@ var CateController = ['$scope', '$routeParams', '$location', 'Cate', 'Filter', '
 
 }];
 
-var CateDetailController = ['$scope', '$routeParams', '$location', 'Cate', 'Cart', function ($scope, $routeParams, $location, Cate, Cart) {
+var CateDetailController = ['$scope', '$routeParams', '$location', 'Cate', 'Filter', 'Cart', function ($scope, $routeParams, $location, Cate, Filter, Cart) {
 
     $scope.goto = function (path) {
         $location.path(path);
     };
     $scope.cart = Cart;
+    Filter.clear();
+    $scope.doFilter = Filter;
     $scope.store;
     if ($routeParams.Id !== undefined) {
         $scope.store = Cate.get({Id: $routeParams.Id});
@@ -131,7 +132,7 @@ var FreshController = ['$scope', '$routeParams', '$location', 'Fresh', 'Filter',
     $scope.goto = function (path) {
         $location.path(path);
     };
-
+    Filter.clear();
     $scope.doFilter = Filter;
     $scope.store;
     $scope.stores = Fresh.query();
@@ -145,12 +146,14 @@ var FreshController = ['$scope', '$routeParams', '$location', 'Fresh', 'Filter',
 
 }];
 
-var FreshDetailController = ['$scope', '$routeParams', '$location', 'Fresh', 'Cart', function ($scope, $routeParams, $location, Fresh, Cart) {
+var FreshDetailController = ['$scope', '$routeParams', '$location', 'Fresh', 'Filter', 'Cart', function ($scope, $routeParams, $location, Fresh, Filter, Cart) {
 
     $scope.goto = function (path) {
         $location.path(path);
     };
     $scope.cart = Cart;
+    Filter.clear();
+    $scope.doFilter = Filter;
     $scope.store;
     if ($routeParams.Id !== undefined) {
         $scope.store = Fresh.get({Id: $routeParams.Id});
@@ -167,7 +170,7 @@ var HelpController = ['$scope', '$routeParams', '$location', 'Help', 'Filter', '
     $scope.goto = function (path) {
         $location.path(path);
     };
-
+    Filter.clear();
     $scope.doFilter = Filter;
     $scope.store;
     $scope.stores = Help.query();
@@ -181,12 +184,14 @@ var HelpController = ['$scope', '$routeParams', '$location', 'Help', 'Filter', '
 
 }];
 
-var HelpDetailController = ['$scope', '$routeParams', '$location', 'Help', 'Cart', function ($scope, $routeParams, $location, Help, Cart) {
+var HelpDetailController = ['$scope', '$routeParams', '$location', 'Help', 'Filter', 'Cart', function ($scope, $routeParams, $location, Help, Filter, Cart) {
 
     $scope.goto = function (path) {
         $location.path(path);
     };
     $scope.cart = Cart;
+    Filter.clear();
+    $scope.doFilter = Filter;
     $scope.store;
     if ($routeParams.Id !== undefined) {
         $scope.store = Help.get({Id: $routeParams.Id});
@@ -207,7 +212,7 @@ var TrainingController = ['$scope', '$routeParams', '$location', 'Training', 'Fi
     $scope.goto = function (path) {
         $location.path(path);
     };
-
+    Filter.clear();
     $scope.doFilter = Filter;
     $scope.store;
     $scope.stores = Training.query();
@@ -221,12 +226,14 @@ var TrainingController = ['$scope', '$routeParams', '$location', 'Training', 'Fi
 
 }];
 
-var TrainingDetailController = ['$scope', '$routeParams', '$location', 'Training', 'Cart', function ($scope, $routeParams, $location, Training, Cart) {
+var TrainingDetailController = ['$scope', '$routeParams', '$location', 'Training', 'Filter', 'Cart', function ($scope, $routeParams, $location, Training, Filter, Cart) {
 
     $scope.goto = function (path) {
         $location.path(path);
     };
     $scope.cart = Cart;
+    Filter.clear();
+    $scope.doFilter = Filter;
     $scope.store;
     if ($routeParams.Id !== undefined) {
         $scope.store = Training.get({Id: $routeParams.Id});

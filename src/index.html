@@ -117,10 +117,9 @@
                                 <li><a href="#/fresh">生鲜水果</a></li>
                             </ul>
                             <!-- /.nav -->
-
-                            <form method="get" class="site-search" action="?">
+                            <form method="get" class="site-search" action="http://zhannei.baidu.com/cse/search?s=2341131941661573103&entry=1&q=" >
                                 <div class="input-append">
-                                    <input title="Enter the terms you wish to search for."
+                                    <input id="bdcsMain" title="Enter the content you wish to search for."
                                            class="search-query span2 form-text" placeholder="Search" type="text"
                                            name="">
                                     <button type="submit" class="btn"><i class="icon-search"></i></button>
@@ -234,6 +233,17 @@
     <!-- /.inner -->
 </div>
 <!-- /.palette -->
+<!--百度站内搜索JS脚本-->
+<script type="text/javascript">(function () {
+    document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));
+    var bdcs = document.createElement('script');
+    bdcs.type = 'text/javascript';
+    bdcs.async = true;
+    bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=2341131941661573103' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date() / 3600000);
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(bdcs, s);
+})();</script>
+<!--百度站内搜索JS脚本-->
 </body>
 <script type="text/javascript" src="js/vendor/jquery/jquery.ezmark.js"></script>
 <script type="text/javascript" src="js/vendor/jquery/jquery.currency.js"></script>

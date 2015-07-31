@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-var app = angular.module('jsApp', ['appServices', 'appDirectives']);
+var app = angular.module('jsApp', [ 'appServices', 'appDirectives']);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.

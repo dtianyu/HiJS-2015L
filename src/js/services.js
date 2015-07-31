@@ -15,14 +15,14 @@ appServices.factory('Area', function ($resource) {
     return $resource("app/data/:Id.json", {}, {
         town: {method: "GET", params: {Id: "town"}, isArray: true}
     });
-});
-appServices.factory('Beauty', function ($resource) {
-    return $resource("app/data/:Id.json", {}, {
-        query: {method: "GET", params: {Id: "beauty"}, isArray: true},
-        top: {method: "GET", params: {Id: "beautyTop"}, isArray: true}
-    });
-});
-appServices.factory('Cart', ['$http', function ($http) {
+})
+    .factory('Beauty', function ($resource) {
+        return $resource("app/data/:Id.json", {}, {
+            query: {method: "GET", params: {Id: "beauty"}, isArray: true},
+            top: {method: "GET", params: {Id: "beautyTop"}, isArray: true}
+        });
+    })
+    .factory('Cart', ['$http', function ($http) {
         return {
             phone: "",
             contacter: "",
@@ -66,7 +66,18 @@ appServices.factory('Cart', ['$http', function ($http) {
                 this.sum();
             },
             create: function (item) {
-                var o = {"storeid": item.storeid, "userid": item.userid, "itemid": item.id, "content": item.itemdesc, "spec": item.itemspec, "price": item.price, "unit": item.unit, "qty": 1, "logo1": item.logo1, "remark": ""};
+                var o = {
+                    "storeid": item.storeid,
+                    "userid": item.userid,
+                    "itemid": item.id,
+                    "content": item.itemdesc,
+                    "spec": item.itemspec,
+                    "price": item.price,
+                    "unit": item.unit,
+                    "qty": 1,
+                    "logo1": item.logo1,
+                    "remark": ""
+                };
                 return o;
             },
             clear: function () {
@@ -98,8 +109,7 @@ appServices.factory('Cart', ['$http', function ($http) {
                 } else {
                     cartList = JSON.parse(cartList);
                 }
-                for (var i = 0; i < cartList.length; i++)
-                {
+                for (var i = 0; i < cartList.length; i++) {
                     index = this.cartItems.indexOf(cartList[i]);
                     if (index !== -1) {
                         this.cartItems.push(cartList[i]);
@@ -146,8 +156,7 @@ appServices.factory('Cart', ['$http', function ($http) {
             sum: function () {
                 var qty = 0;
                 var amts = 0;
-                for (var i = 0; i < this.cartItems.length; i++)
-                {
+                for (var i = 0; i < this.cartItems.length; i++) {
                     qty += this.cartItems[i].qty;
                     amts += this.cartItems[i].amts;
                 }
@@ -191,27 +200,37 @@ appServices.factory('Cart', ['$http', function ($http) {
                 var cartId = getCartId();
                 var url = home_url + '/cart';
                 var url_detail = home_url + '/cartdetail';
-                var cart = {"cartid": cartId, "storeid": this.storeid, "phone": this.phone, "contacter": this.contacter, "address": this.address, "recdate": this.recdate, "rectime": this.rectime, "amts": this.totalAmts, "freight": this.freight, "remark": ""};
-                for (var i = 0; i < this.cartItems.length; i++)
-                {
+                var cart = {
+                    "cartid": cartId,
+                    "storeid": this.storeid,
+                    "phone": this.phone,
+                    "contacter": this.contacter,
+                    "address": this.address,
+                    "recdate": this.recdate,
+                    "rectime": this.rectime,
+                    "amts": this.totalAmts,
+                    "freight": this.freight,
+                    "remark": ""
+                };
+                for (var i = 0; i < this.cartItems.length; i++) {
                     this.cartItems[i].cartid = cartId;
                 }
                 this.save();
                 var cartList = JSON.parse(localStorage.getItem(key));
                 $http.post(url, cart)
-                        .success(function () {
-                            $http.post(url_detail, cartList)
-                                    .success(function () {
-                                        alert("提交成功!");
-                                        doAfterSubmit();
-                                        window.location.href = "http://www.jinshanlife.com/HiJS-store";
-                                    }).error(function () {
+                    .success(function () {
+                        $http.post(url_detail, cartList)
+                            .success(function () {
+                                alert("提交成功!");
+                                doAfterSubmit();
+                                window.location.href = "http://www.jinshanlife.com/HiJS-store";
+                            }).error(function () {
                                 alert("提交失败，请重试!");
                             });
-                        })
-                        .error(function () {
-                            alert("提交失败，请重试!");
-                        });
+                    })
+                    .error(function () {
+                        alert("提交失败，请重试!");
+                    });
 
             },
             unSubmit: function (o) {
@@ -224,52 +243,59 @@ appServices.factory('Cart', ['$http', function ($http) {
                 return o;
             }
         };
-    }]);
-appServices.factory('Cate', function ($resource) {
-    return $resource("app/data/:Id.json", {}, {
-        query: {method: "GET", params: {Id: "cate"}, isArray: true},
-        top: {method: "GET", params: {Id: "cateTop"}, isArray: true}
-    });
-});
-appServices.factory('Category', function ($resource) {
-    return $resource("app/data/:Id.json", {}, {
-        cate: {method: "GET", params: {Id: "cateCategory"}, isArray: true},
-        help: {method: "GET", params: {Id: "helpCategory"}, isArray: true},
-        beauty: {method: "GET", params: {Id: "beautyCategory"}, isArray: true},
-        fresh: {method: "GET", params: {Id: "freshCategory"}, isArray: true}
-    });
-});
-appServices.factory('Filter', function () {
-    return{
-        filterDetail: {},
-        filters: [],
-        searchText: ''
-    };
-});
-appServices.factory('Fresh', function ($resource) {
-    return $resource("app/data/:Id.json", {}, {
-        query: {method: 'GET', params: {Id: 'fresh'}, isArray: true},
-        top: {method: 'GET', params: {Id: 'freshTop'}, isArray: true}
-    });
-});
-appServices.factory('Help', function ($resource) {
-    return $resource("app/data/:Id.json", {}, {
-        query: {method: "GET", params: {Id: "help"}, isArray: true},
-        top: {method: "GET", params: {Id: "helpTop"}, isArray: true}
-    });
-});
-appServices.factory('StoreKind', function ($resource) {
-    return $resource("app/data/:Id.json", {}, {
-        query: {method: 'GET', params: {Id: 'storekind'}, isArray: true}
-    });
-});
-appServices.factory("Training",function($resource){
-    return $resource("app/data/:Id.json",{},{
-        query:{method:'GET',params:{Id:'training'},isArray:true},
-        top:{method:'GET',params:{Id:'trainingTop'},isArray:true}
+    }])
+    .factory('Cate', function ($resource) {
+        return $resource("app/data/:Id.json", {}, {
+            query: {method: "GET", params: {Id: "cate"}, isArray: true},
+            top: {method: "GET", params: {Id: "cateTop"}, isArray: true}
+        });
     })
-});
-appServices.factory('WebLinks', function ($resource) {
+    .factory('Category', function ($resource) {
+        return $resource("app/data/:Id.json", {}, {
+            cate: {method: "GET", params: {Id: "cateCategory"}, isArray: true},
+            help: {method: "GET", params: {Id: "helpCategory"}, isArray: true},
+            beauty: {method: "GET", params: {Id: "beautyCategory"}, isArray: true},
+            fresh: {method: "GET", params: {Id: "freshCategory"}, isArray: true}
+        });
+    })
+    .factory('Filter', function () {
+        return {
+            filterDetail: {},
+            filters: [],
+            searchText: '',
+            clear: function () {
+                var _this = this;
+                if (_this.filters.length > 0) {
+                    _this.filters.splice(0, _this.filters.length);
+                }
+                _this.filterDetail = {}
+            }
+        };
+    })
+    .factory('Fresh', function ($resource) {
+        return $resource("app/data/:Id.json", {}, {
+            query: {method: 'GET', params: {Id: 'fresh'}, isArray: true},
+            top: {method: 'GET', params: {Id: 'freshTop'}, isArray: true}
+        });
+    })
+    .factory('Help', function ($resource) {
+        return $resource("app/data/:Id.json", {}, {
+            query: {method: "GET", params: {Id: "help"}, isArray: true},
+            top: {method: "GET", params: {Id: "helpTop"}, isArray: true}
+        });
+    })
+    .factory('StoreKind', function ($resource) {
+        return $resource("app/data/:Id.json", {}, {
+            query: {method: 'GET', params: {Id: 'storekind'}, isArray: true}
+        });
+    })
+    .factory("Training", function ($resource) {
+        return $resource("app/data/:Id.json", {}, {
+            query: {method: 'GET', params: {Id: 'training'}, isArray: true},
+            top: {method: 'GET', params: {Id: 'trainingTop'}, isArray: true}
+        })
+    })
+    .factory('WebLinks', function ($resource) {
     return $resource("app/data/:Id.json", {}, {
         links: {method: "GET", params: {Id: "Weblink"}, isArray: true},
         shortcuts: {method: "GET", params: {Id: "Weblink2"}, isArray: true}
